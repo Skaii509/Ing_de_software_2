@@ -4,17 +4,21 @@ import LoginPage from './pages/Login.jsx'
 import RegisterPage from './pages/Register.jsx'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container } from 'react-bootstrap'
+import NavBar from './components/Navbar.jsx'
 
 function App() {
   return (
-    <Container>
-      <Routes>
-        <Route path="/" element={<ChatPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Container> 
+    <>
+      <NavBar />
+      <Container className='text-secondary'>
+        <Routes>
+          <Route path="/" element={<ChatPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Container> 
+    </>
     )
 }
   

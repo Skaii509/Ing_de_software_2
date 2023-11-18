@@ -5,16 +5,19 @@ import RegisterPage from './pages/Register.jsx'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container } from 'react-bootstrap'
 import NavBar from './components/Navbar.jsx'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext.jsx'
 
 function App() {
+  const { user } = useContext(AuthContext)
   return (
     <>
       <NavBar />
       <Container className='text-secondary'>
         <Routes>
-          <Route path="/" element={<ChatPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={ user ? <ChatPage /> : <LoginPage />} />
+          <Route path="/register" element={user ? <ChatPage /> : <RegisterPage />} />
+          <Route path="/login" element={user ? <ChatPage /> : <LoginPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Container> 

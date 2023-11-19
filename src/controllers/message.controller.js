@@ -25,7 +25,6 @@ export const getMessages = async (req, res) => {
   try {
     const messages = await MessageModel.find({ chatId })
     res.status(200).json(messages)
-    console.log('Dato: ', messages.chatId)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

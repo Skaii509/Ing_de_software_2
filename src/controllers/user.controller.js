@@ -1,9 +1,9 @@
 import User from '../models/user.model.js'
 import bcrypt from 'bcrypt'
-// import jwt from 'jsonwebtoken'
 import { createAccessToken } from '../libs/jwt.js'
 import validator from 'validator'
 
+// REGISTER USER
 export const registerUser = async (req, res) => {
   const { username, email, password } = req.body
 
@@ -40,6 +40,7 @@ export const registerUser = async (req, res) => {
   }
 }
 
+// LOGIN USER
 export const loginUser = async (req, res) => {
   const { email, password } = req.body
 
